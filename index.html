@@ -82,8 +82,8 @@
                 function backSpace() {
                     document.getElementById("input-value").value = document.getElementById("input-value").value.slice(0, -1);
 
-                } 
-              let count = 3;
+                }
+                let count = 3;
                 function matchPin() {
 
                     const generatePin = document.getElementById("pin-show").value;
@@ -98,14 +98,14 @@
                         document.getElementById("notify-success").style.display = "block"
                         document.getElementById("notify-unsuccess").style.display = "none"
                     }
-                     
+
                     if (generateNewPin != inputNewPin) {
                         const tryLeft = document.getElementById("try-left");
                         count--;
                         if (count == 0) {
-                        document.getElementById("submit-pin").disabled = true;
-                        alert("Incurrect trying on button is not work, refresh page")
-                    }
+                            document.getElementById("submit-pin").disabled = true;
+                            alert("Incurrect trying on button is not work, refresh page")
+                        }
                         document.getElementById("try-left").innerText = count;
                         document.getElementById("notify-success").style.display = "none"
                         document.getElementById("notify-unsuccess").style.display = "block"
