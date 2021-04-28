@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input id="pin-show" class="form-control text-center" type="text">
+                    <input id="pin-value" class="form-control text-center" type="text">
                     <button id="generate-btn" class="generate-btn" onclick="generatPin()">Generate Pin</button>
                 </div>
             </div>
@@ -68,7 +68,7 @@
 
                 function generatPin() {
                     const generatePin = Math.floor(1000 + Math.random() * 9000);
-                    document.getElementById("pin-show").value = generatePin;
+                    document.getElementById("pin-value").value = generatePin;
                     document.getElementById("input-value").value = '';
                     document.getElementById("notify-success").style.display = "none"
                     document.getElementById("notify-unsuccess").style.display = "none"
@@ -85,12 +85,9 @@
                 }
                 let count = 3;
                 function matchPin() {
-
-                    const generatePin = document.getElementById("pin-show").value;
-                    const generateNewPin = parseInt(generatePin);
+                    const generateNewPin = getValue("pin");
+                    const inputNewPin = getValue("input");
                     const inputPin = document.getElementById("input-value").value;
-                    const inputNewPin = parseInt(inputPin);
-
                     if (inputPin.length == 0) {
                         alert("Please type pin  4 digit pin");
                     }
@@ -111,6 +108,12 @@
                         document.getElementById("notify-unsuccess").style.display = "block"
                     }
                 }
+                function getValue(id) {
+                    const pinValue = document.getElementById(id + "-value").value;
+                    const newValuePin = parseInt(pinValue);
+                    return newValuePin;
+                }
+
             </script>
 
 </body>
